@@ -17,17 +17,7 @@ Base.prepare(engine, reflect=True)
 # Flask Setup
 app = Flask(__name__)
 
-# Flask Routes
 @app.route("/")
-def home():
-    """List all available api routes."""
-    return (
-        f"Available Routes:<br/>"
-        f"/data<br/>"
-        f"/test"
-    )
-
-@app.route("/data")
 def db_to_json():
     data = []
     stops = engine.execute(f'select * from traffic_2016')
